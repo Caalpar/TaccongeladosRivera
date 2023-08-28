@@ -1,0 +1,42 @@
+.btn-my-orders {
+    border-radius: 0;
+    padding: 0.7em !important;
+    width: 8.2em !important;
+    background-color: #1364BF !important;
+    border: none !important;
+}
+
+.history {
+    background-color: #04388E !important;
+}
+
+.history-content {
+    display: none;
+    margin-top: 1em;
+}
+
+.my-orders-content {
+    margin-top: 1em;
+}
+
+.history-content span {
+    background-color: #04388E;
+}
+
+.my-orders-content span {
+    background-color: #1364BF;
+}
+
+.my-orders-content span,
+.history-content span {
+    float: left;
+    width: 21%;
+    padding: 2em 0;
+    height: 2em;
+    overflow-x: auto;
+    border: none;
+}
+
+.hr-my-orders {
+    width: 100%;
+}

@@ -1,0 +1,718 @@
+* {
+    padding: 0;
+    margin: 0;
+    /* font-family: "Amatic SC", sans-serif;*/
+    font-size: 30px;
+    color: white;
+}
+
+.container {
+    background-image: url('https://www.w3schools.com/w3images/pizza.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw auto;
+    filter: brightness(0.90) sepia(30%);
+    height: min-content;
+}
+
+.oreder-list {
+    position: fixed;
+    bottom: -45%;
+    border-radius: 50px 50px 10px 10px;
+    border: solid 5px white;
+    margin: 0;
+    background-color: black;
+    width: 40%;
+    height: 50%;
+}
+
+.tbody-order-pending {
+    position: absolute;
+    height: 150px;
+    right: 4px;
+    overflow: auto;
+    top: 100px;
+    width: 90%;
+}
+
+.show-oreder {
+    bottom: 0;
+}
+
+.text-area-and-btn-oreder {
+    position: absolute;
+    top: 180px;
+}
+
+.count {
+    padding: 0 16px;
+    font-size: 20px;
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+}
+
+.btn-count {
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-radius: 20%;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+}
+
+.btn-pedido {
+    background-color: #a37773;
+    width: 65%;
+    border-radius: 5%;
+    font-size: 25px;
+    padding: 2%;
+}
+
+.oreder-text {
+    display: inline;
+}
+
+.oreder-position {
+    position: relative;
+    padding: 1%;
+}
+
+.total {
+    float: right;
+    padding: 5px;
+}
+
+.hr-style {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.384);
+}
+
+.text-count {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+}
+
+.table-oreder {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    z-index: 1;
+    overflow: auto;
+}
+
+.table-oreder td {
+    padding: 16px;
+}
+
+.table-oreder tbody td {
+    width: 3%;
+}
+
+.show-oreders {
+    width: 100%;
+    background-color: #7e7e80;
+    border-radius: 45px 45px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    z-index: 2;
+}
+
+.show-oreders:hover {
+    opacity: 0.8;
+}
+
+textarea {
+    color: black;
+    resize: none;
+    height: 5%;
+    width: 80%;
+}
+
+.title {
+    padding-top: 20%;
+    padding-bottom: 20%;
+    z-index: 2;
+    font-size: 90px;
+    text-align: center;
+    filter: sepia(0%);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.my-oreders {
+    float: left;
+    position: relative;
+    top: 5px;
+    background-color: black;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.my-oreders:active,
+.my-oreders:hover {
+    background-color: rgba(255, 255, 255, 0.712);
+}
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    width: 50%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+.table-oreder-history tr {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-oreder-history tr:nth-child(even) {
+    background-color: #666669;
+}
+
+.table-oreder-history-2 tr:nth-child(even) {
+    background-color: #a37773;
+}
+
+.table-oreder-history td {
+    padding: 0 8px;
+}
+
+.navbar {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.247);
+}
+
+.navbar:hover {
+    background-color: black;
+}
+
+.navbar .btn {
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 10px;
+    ;
+}
+
+.navbar .btn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.navbar .icon {
+    display: none;
+}
+
+.align-right {
+    float: right;
+}
+
+.user_display {
+    display: none;
+}
+
+.img-logoff {
+    position: relative;
+    top: 3px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.img-logoff:focus {
+    cursor: pointer;
+}
+
+.img-logoff:hover {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.678);
+    padding: 16px;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal-content-oreders {
+    background-color: rgba(0, 0, 0, 0.678);
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal-content-oreders button {
+    margin: 0;
+}
+
+
+/* The Close Button (x) */
+
+.close {
+    position: relative;
+    float: right;
+    right: 15px;
+    top: 0;
+    font-size: 35px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    color: black;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #175539;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.801);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+
+/* Add Zoom Animation */
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+.menu-conten {
+    background-color: black;
+    text-align: center;
+    padding: spx;
+}
+
+.menu-title {
+    font-size: 40px;
+}
+
+.accordion {
+    background-color: black;
+    border-bottom: 1px solid white;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 50%;
+    text-align: left;
+    outline: none;
+    font-size: 30px;
+    transition: 0.4s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.accordion:hover,
+.accordion:active {
+    background-color: white;
+    color: black;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: black;
+    width: 50%;
+    margin: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.food {
+    display: inline-block;
+    border-bottom: 5px solid black;
+    position: relative;
+    padding: 7px;
+    width: 31%;
+    vertical-align: top;
+    border-radius: 1%;
+}
+
+.triangle {
+    border-left: 7vmax solid red;
+    border-bottom: 7vmax solid transparent;
+    position: absolute;
+}
+
+.triangle::after {
+    content: 'agotado';
+    color: #fff;
+    font-size: 1.5vmax;
+    text-transform: uppercase;
+    left: -4.75vmax;
+    top: 1.2vmax;
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%) rotate(315deg);
+}
+
+.addorder {
+    background-color: rgb(94, 94, 255);
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+.addorder:after {
+    font-size: 40px;
+    content: '\002B';
+}
+
+.order {
+    background-color: rgba(255, 255, 255, 0.733);
+    color: black;
+}
+
+.order p b {
+    color: black;
+}
+
+.order p {
+    color: black;
+}
+
+.order .addorder {
+    background-color: #4acf9e;
+}
+
+.order .addorder:after {
+    content: "\2713";
+}
+
+.title-oreder-history {
+    /*background-color: #a37773;#666669*/
+    padding-bottom: 16px;
+    text-align: left;
+    font-size: 40px;
+}
+
+.food-description {
+    text-align: left;
+    padding: 16px;
+}
+
+.food-price-history {
+    border-radius: 10%;
+    font-weight: 300;
+}
+
+.food-price {
+    background-color: rgb(83, 83, 83);
+    float: right;
+    position: relative;
+    border-radius: 10%;
+    font-weight: 300;
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+.nosotros {
+    background-color: #a37773;
+    text-align: center;
+    padding: 100px 40px;
+    font-size: 50px;
+    height: 500px;
+}
+
+.nosotros h1 {
+    font-size: 70px;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+@media screen and (max-width: 800px) {
+    .modal-content {
+        width: 80%;
+    }
+    * {
+        font-size: 17px;
+    }
+    .text-area-and-btn-oreder {
+        top: 180px;
+        width: 90%;
+    }
+    .navbar a:not(#home,
+    .icon) {
+        display: none;
+    }
+    .navbar a.icon {
+        float: right;
+        display: block;
+        text-decoration: none;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        font-size: 20px;
+    }
+    .table-oreder tbody td {
+        width: 30%;
+    }
+    .responsive {
+        background-color: black;
+    }
+    .responsive a.icon {
+        float: right;
+        display: block;
+        text-decoration: none;
+        position: absolute;
+        right: 10px;
+        top: 0;
+    }
+    .responsive {
+        position: relative;
+    }
+    .responsive a,
+    .responsive .align-right {
+        float: none;
+    }
+    .responsive #home,
+    #menu,
+    #as {
+        float: left;
+    }
+    .responsive a,
+    .responsive .align-right {
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .responsive .align-right {
+        padding: 5px 0;
+    }
+    .responsive .my-oreders {
+        top: 107px;
+        left: -152px;
+        height: 22px;
+        width: 56%;
+        z-index: 1;
+    }
+    .responsive #btn-login-singin a {
+        width: 20%
+    }
+    .tbody-order-pending {
+        right: 13px;
+        top: 70px;
+        height: 110px;
+    }
+    textarea#details {
+        width: 100%;
+    }
+    #text {
+        font-size: 35px;
+        width: 80%;
+    }
+    .panel {
+        padding: 0;
+        width: 100%;
+    }
+    .food {
+        width: 45%;
+    }
+    .food-description {
+        padding: 2px;
+    }
+    .addorder {
+        width: 30px;
+        height: 30px;
+        right: 10px;
+        top: 10px;
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .addorder:after {
+        font-size: 40px;
+        content: '\002B';
+        top: 0;
+    }
+    .oreder-list {
+        width: 100%;
+        bottom: -44%;
+        font-size: 20px;
+        right: -5px;
+    }
+    .table-oreder td {
+        padding: 2%;
+        width: 83%;
+    }
+    .text-count {
+        width: 100px;
+    }
+    .btn-pedido {
+        width: 100%;
+        font-size: 20px;
+    }
+    .show-oreder {
+        bottom: 0;
+    }
+    .show-oreders {
+        font-size: 30px;
+    }
+    .accordion {
+        width: 100%;
+        font-size: 40px;
+    }
+    .accordion:hover {
+        background-color: black;
+        color: white;
+    }
+    .accordion:active {
+        background-color: white;
+        color: black;
+    }
+    textarea {
+        width: 300px;
+        height: 75px;
+    }
+    .modal-content-oreders {
+        width: 100%;
+    }
+    .tabcontent {
+        padding: 30px 5px;
+    }
+}

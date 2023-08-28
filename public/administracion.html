@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" onclick="See(event)">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAC congelados</title>
+    <link rel="stylesheet" href="./css/pizzeria.css">
+</head>
+
+<body>
+    <h2>TAC congelados</h2>
+    <p>Panel de administracion</p>
+    <hr>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Pizzeria',this)" id="open-pizzeria">Configuracion</button>
+        <button class="tablinks" onclick="openCity(event, 'Pedidos',this)" id="open-pedidos">Pedidos</button>
+        <button class="tablinks" onclick="openCity(event, 'Deliverys',this)" id="open-deliverys">Deliverys</button>
+        <button class="tablinks" onclick="openCity(event, 'Clientes',this)" id="open-clientes">Clientes</button>
+        <button class="tablinks" onclick="openCity(event, 'Menus',this)" id="open-menus">Productos</button>
+    </div>
+
+    <div id="Pizzeria" class="tabcontent">
+        <h3>Panel de Configuracion</h3>
+
+    </div>
+
+    <div id="Pedidos" class="tabcontent">
+        <h3>Pedidos</h3>
+        <div>
+            <label for="">Buscar pedidos por delivery</label><samp id='dropdown-delivery-search' style="padding: 16px;"></samp>
+        </div>
+        <div>
+            <button onclick="ModaAddOreder()">agregar pedido</button>
+            <span>Buscar Nº pedido</span><input type="text" onkeyup="SearchOrder(this,'tbody-pedidos',0)">
+            <span>Buscar estado pedido</span>
+            <select name="drop-state-order" id="drop-state-order" onchange="SearchOrderFromState(this,'tbody-pedidos',10)">
+                <option value="ALL">todos</option>
+                <option value="Recibido">recibido</option>
+                <option value="En Proceso">en proceso</option>
+                <option value="En Reparto">en reparto</option>
+                <option value="Entregado">entregado</option>
+                <option value="Cancelado">cancelado</option>
+            </select>
+
+        </div>
+        <div>
+            <table class="table-menu" id='table-pedidos'>
+                <thead>
+                    <tr>
+                        <th>
+                            Nº Orden
+                        </th>
+                        <th colspan="4">
+                            Pedido
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        <th>
+                            Hora
+                        </th>
+                        <th>
+                            Cliente
+                        </th>
+                        <th>
+                            Detalles
+                        </th>
+                        <th>
+                            Dirección
+                        </th>
+                        <th>
+                            Telefóno
+                        </th>
+                        <th>
+                            Delivery
+                        </th>
+                        <th>
+                            Metodo de Pago
+                        </th>
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Total a pagar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id='tbody-pedidos'>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            Total General:
+                        </td>
+                        <td id="oreders_general_total">
+
+                        </td>
+                        <td>
+                            Porcentaje de Venta:
+                        </td>
+                        <td id="oreders_porcentage">
+
+                        </td>
+                        <td colspan="9">
+
+                        </td>
+                        <td>
+                            Total:
+                        </td>
+                        <td id='total-oreders-price'>
+
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div id="Deliverys" class="tabcontent">
+        <h3>Deliverys</h3>
+        <div>
+            <button onclick="ModaDelivery()">agregar delivery</button>
+        </div>
+        <div>
+            <table class="table-menu">
+                <thead>
+                    <tr>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Apellido
+                        </th>
+                        <th>
+                            Matricula
+                        </th>
+                        <th>
+                            Vehiculo
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id='tbody-deliverys'>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="Clientes" class="tabcontent">
+        <h3>Clientes</h3>
+        <div>
+            <button onclick="ModaAddClients()">Agregar Cliente</button>
+
+        </div>
+        <div>
+            <table class="table-menu" id='table-clientes'>
+                <thead>
+                    <tr>
+                        <th>
+                            Usuario
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Apellido
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Telefóno
+                        </th>
+                        <th>
+                            Dirección
+                        </th>
+                        <th>
+                            Referencia
+                        </th>
+                        <th>
+                            Barrio
+                        </th>
+                        <th>
+                            Entre
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id='tbody-clientes'>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="Menus" class="tabcontent">
+        <h3>Productos</h3>
+        <div>
+            <span>Buscar por Categoria</span>
+            <select name="search-menus-cat" id="search-menus-cat" onchange="SearchOrderFromState(this,'tbody-menu',0)"></select>
+            <span>Buscar en producto</span><input type="text" onkeyup="SearchMenu(this,'tbody-menu')">
+        </div>
+        <div>
+            <button onclick="ModalMenu()">agregar producto</button>
+            <!-- <button onclick="DeleteMenu()">eliminar menu</button> -->
+            <button onclick="ModalCategoria()">agregar categoria</button>
+            <button onclick="ShowModalEditCat()">editar categoria</button>
+            <!-- <button onclick="ShowModaleDeleteCat()">eliminar categoria</button> -->
+        </div>
+        <div>
+            <table class="table-menu">
+                <thead>
+                    <tr>
+                        <th>
+                            categoria
+                        </th>
+                        <th>
+                            título
+                        </th>
+                        <th>
+                            descripciíon
+                        </th>
+                        <th>
+                            precio
+                        </th>
+                        <th>
+                            disponibilidad
+                        </th>
+                        <th>
+                            imagen
+                        </th>
+                        <th>
+                            portada
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id='tbody-menu'>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="contestual" id="options">
+        <div onclick="PrintElem()"><img src="./assets/img/icon/print.svg" width="20" alt=""> Imprimir pedido</div>
+        <div onclick="ModaDeliveryOreder()"><img src="./assets/img/icon/delivery.png" width="18" alt=""> Agregar delivery</div>
+        <div onclick="ModalEditOreder()"><img src="./assets/img/icon/edit.svg" width="20" alt=""> Editar pedido</div>
+        <div onclick="OrderConfirm()"><img src="./assets/img/icon/confirm.svg" width="20" alt=""> Confirmar pedido</div>
+        <div onclick="DetailsElem()"><img src="./assets/img/icon/details.svg" width="20" alt=""> Detalles del pedido</div>
+        <div onclick="CancelOrder()"><img src="./assets/img/icon/cancel.svg" width="20" alt=""> Cancelar pedido</div>
+    </div>
+
+    <div class="contestual" id="options-menus">
+        <div onclick="ShowModalMenuEdit()"><img src="./assets/img/icon/edit.svg" width="20" alt="">Editar producto</div>
+    </div>
+
+    <div class="contestual" id="options-client">
+        <div onclick="ModaEditClients()"><img src="./assets/img/icon/edit.svg" width="20" alt="">Editar menu</div>
+    </div>
+
+
+</body>
+<script src="./js/golbal.js"></script>
+<script src="./js/DropDown.js"></script>
+<script src="./js/Modal.js"></script>
+<script src="./js/modal_edit_order.js"></script>
+<script src="./js/order_print.js"></script>
+<script src="./js/order_details.js"></script>
+<script src="./js/main_menu.js"></script>
+<script src="./js/clients.js"></script>
+<script src="./js/productos.js"></script>
+<script src="./pizzeria.js"></script>
+
+</html>

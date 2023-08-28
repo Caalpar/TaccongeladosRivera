@@ -1,0 +1,36 @@
+.accordion {
+    background-color: #1364BF;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.active {
+    background-color: rgba(233, 233, 233, 0.438);
+    color: #1364BF;
+    border: solid 5px #1364BF;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.panel {
+    background-color: #1363bf23;
+    width: 100%;
+    margin: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}

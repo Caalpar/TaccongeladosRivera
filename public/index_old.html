@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>TAC congelados</title>
+    <link rel="stylesheet" href="./assets/fonts/fonts.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body id="body">
+    <div id="overlay" onclick="off_overlay()">
+        <div id="text">Overlay Text</div>
+    </div>
+    <div class="navbar" id="navbar">
+        <a class="btn" href="" id="home">INICIO</a>
+        <a class="btn" href="" id="menu">MENU</a>
+        <a class="btn" href="" id="as">NOSOTROS</a>
+        <div class="align-right">
+            <span id='btn-login-singin'>
+                <a class="btn" onclick="SeeLogIn()">INICIAR SESIÓN</a>
+                <a class="btn" onclick="SeeSingIn()">CREAR CUENTA</a>
+            </span>
+            <span id="user_display" class="user_display">
+                <a class="my-oreders" onclick="SeeMyOreders()">Mis Pedidos</a>
+                <a class="btn" id='user'></a>
+                <a class="btn" onclick="Logoff()">CERRAR SESIÓN</a>
+            </span>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="Responsive_Menu()">&#9776;</a>
+    </div>
+    <div class="container">
+
+
+        <h1 class="title">TAC congelados</h1>
+    </div>
+    <div id="singin" class="modal">
+        <div class="modal-content animate">
+            <span class="close" title="close" onclick="NotSeeSingIn()">&times;</span>
+            <div class="pad-16">
+
+                <label for="name">Usuario</label>
+                <input type="text" placeholder="Usuario" name="name" id="user_singin" required>
+
+                <label for="name">Nombre</label>
+                <input type="text" placeholder="Nombre" name="name" id="name_singin" required>
+
+                <label for="lastname">Apellido</label>
+                <input type="text" placeholder="Apellido" name="lastname" id="last_name_singin" required>
+
+                <label for="email">email</label>
+                <input type="email" placeholder="email" name="email" id="email_singin" required>
+
+                <label for="address">dirección</label>
+                <input type="text" placeholder="dirección" name="address" id="address_singin" required>
+
+                <label for="phone">telefóno</label>
+                <input type="number" placeholder="telefóno" name="phone" id="phone_singin" required>
+
+                <label for="psw">Contraseña</label>
+                <input type="password" placeholder="Contraseña" name="psw" id="password_singin" required>
+
+                <label for="psw-repeat">Confirmar Contraseña</label>
+                <input type="password" placeholder="Confirmar Contraseña" name="psw-repeat" id="password_repeat_singin" required>
+
+                <button type="submit" onclick="SingIn()">Crear Cuenta</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="login" class="modal">
+        <div class="modal-content animate">
+            <span class="close" title="close" onclick="NotSeeLogIn()">&times;</span>
+            <div class="pad-16">
+                <label for="name">Usuario</label>
+                <input type="text" placeholder="Usuario" name="name" id="user_login" required>
+
+                <label for="psw">Contraseña</label>
+                <input type="password" placeholder="Contraseña" name="psw" id="password_login" required>
+
+                <button type="submit" onclick="Login()">Iniciar Sesión</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" id="remember"> recordar
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div id="my-oreders" class="modal">
+        <div class="modal-content-oreders animate">
+            <span class="close" title="close" onclick="NotMyOreders()">&times;</span>
+            <div id="my-orders-list" class="tabcontent">
+                <h1 class="title-oreder-history">Pedidos pendeientes</h1>
+                <table class="table-oreder-history">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Pedido</th>
+                            <th>Estado</th>
+                            <th>Delivery</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-oreder-pending">
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="my-orders-history" class="tabcontent">
+                <h1 class="title-oreder-history">Pedidos confirmados</h1>
+                <table class="table-oreder-history table-oreder-history-2">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Pedido</th>
+                            <th>Estado</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-oreder-history">
+                        <tr>
+                            <td>
+                                21/6/2021
+                            </td>
+                            <td>
+                                Milanesa al plato
+                            </td>
+                            <td>
+                                Recivido
+                            </td>
+                            <td class="food-price-history">
+                                $100
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                21/6/2021
+                            </td>
+                            <td>
+                                Milanesa al plato
+                            </td>
+                            <td>
+                                Recivido
+                            </td>
+                            <td class="food-price-history">
+                                $100
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="tablink" onclick="openOredersAndHistory('my-orders-list', this, '#a37773')" id="defaultOpen">Pendeintes</button>
+            <button class="tablink" onclick="openOredersAndHistory('my-orders-history', this, '#7e7e80')">Confirmados</button>
+        </div>
+    </div>
+
+
+    <div class="menu-conten" id="menus">
+        <h1 class="menu-title">Los Productos</h1>
+    </div>
+    <div id="oreder" class="oreder-list">
+        <div class="show-oreders" onclick="showoreders()">
+            Hacer Pedido
+        </div>
+        <div>
+            <div class="oreder-position">
+                <div class="oreder-text">
+
+                    <table class="table-oreder">
+                        <thead>
+                            <tr>
+                                <th>Cantidad</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody" class="tbody-order-pending">
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <hr class="hr-style">
+                                </td>
+                            </tr>
+                            <tr class="text-area-and-btn-oreder">
+                                <td>
+                                    <h6>Detalles</h6>
+                                    <textarea name="details" id="details">
+                                     </textarea>
+                                </td>
+                                <td>
+                                    <div>
+                                        <button class="btn-pedido" onclick="CreatePedido()">Hacer Pedido</button>
+                                    </div>
+                                    <span>total:</span><span id="total"></span>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id='nosotros' class='nosotros'>
+        <h1>Nosotros</h1>
+    </div>
+
+</body>
+<script src="./Modal.js"></script>
+<script src="./index.js"></script>
+
+
+
+
+</html>

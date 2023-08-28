@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/tools.css">
+    <link rel="stylesheet" href="./assets/fonts/fonts.css">
+    <link rel="stylesheet" href="./css/sesion_menu.css">
+    <link rel="stylesheet" href="./css/titel.css">
+    <link rel="stylesheet" href="./css/categoria.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/listado_pedidos.css">
+    <link rel="stylesheet" href="./css/mis_pedidos.css">
+    <link rel="stylesheet" href="./css/hours.css">
+    <link rel="icon" type="image/png" href="/assets/img/LogoTac.png" />
+
+    <!-- <meta name="viewport" content="user-scalable=0"> -->
+
+    <title>TAC congelados</title>
+</head>
+
+<body>
+    <div id="overlay" onclick="off_overlay()">
+        <div id="text_overlay">Overlay Text</div>
+    </div>
+    <div class="foto-portada">
+        <img src="../assets/img/Cartel_5600_x_800_mm.jpg" alt="">
+    </div>
+    <div id="snackbar"></div>
+    <nav class="navbar" id="navbar">
+        <div class="close-btn-menu-nav" onclick=" OpenMenuSesion(this,'menu-nav','40')">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <a href="#menus">Menu</a>
+        <a>Nosotros</a>
+
+    </nav>
+    <div class="menu-nav sidenav" id="menu-nav">
+        <div id="sesion_login">
+            <a onclick=" OpenMenuSesion(this,'login','100')">Iniciar Sesion</a>
+            <a onclick=" OpenMenuSesion(this,'singin','100')">Crear Cuenta</a>
+
+        </div>
+        <div id="sesion_user" class="user no-display">
+            <a id="user_name"></a>
+            <a onclick="OpenMenuSesion(this,'orders','100')">Mis Pedidos</a>
+            <a onclick="Logoff()">Cerrar Sesion</a>
+        </div>
+    </div>
+
+    <div class="sesion login sidenav">
+        <div class="arrow-content" onclick=" OpenMenuSesion(this,'login','100')"></div>
+        <div class="arrow"></div>
+        <h1>Iniciar Sesion</h1>
+        <div class="input-content">
+            <input type="text" id="user_login" placeholder="usuario">
+            <input type="password" id="password_login" placeholder="contraseña">
+            <div>
+                <h6>Recordar</h6>
+                <input type="checkbox" id="checkbox_login"></input>
+            </div>
+            <input type="button" onclick="Login(null,null,false,true)" value="Iniciar Sesion">
+        </div>
+
+    </div>
+
+    <div class="sesion singin sidenav">
+        <div class="arrow-content" onclick="OpenMenuSesion(this,'singin','100')"></div>
+        <div class="arrow"></div>
+        <h1>Crear Cuenta</h1>
+        <div class="input-content">
+            <input type="text" id="user_singin" placeholder="usuario">
+            <input type="text" id="name_singin" placeholder="nombre">
+            <input type="text" id="last_name_singin" placeholder="apellido">
+            <input type="email" id="email_singin" placeholder="email">
+            <input type="tel" id="phone_singin" placeholder="telefóno">
+            <input type="text" id="address_singin" placeholder="dirección">
+            <input type="text" id="neighborhood_singin" placeholder="barrio">
+            <input type="text" id="reference_singin" placeholder="referencia">
+            <input type="text" id="corner_singin" placeholder="entre">
+            <input type="password" id="password_singin" placeholder="constraseña">
+            <input type="password" id="confirm_password_singin" placeholder="confirmar contraseña">
+
+            <input type="button" onclick="SingIn()" value="Crear Cuenta">
+        </div>
+
+    </div>
+
+    <div class="sesion orders sidenav">
+        <div class="arrow-content" onclick="OpenMenuSesion(this,'orders','100')"></div>
+        <div class="arrow"></div>
+        <h1>Mis Pedidos</h1>
+        <div class="input-content">
+            <input type="button" class="btn-my-orders" onclick="ShowMyOrders('orders')" value='Pendientes'>
+            <input type="button" class="btn-my-orders history" onclick="ShowMyOrders('history')" value='Confirmados'>
+            <article id='my-orders' class="my-orders-content">
+                <span style="width: 25%;"><b>Fecha</b></span>
+                <span style="width: 25%;"><b>Estado</b></span>
+                <span style="width: 25%;"><b>Delivery</b></span>
+                <span style="width: 25%;"><b>Precio</b></span>
+                <hr class="hr-my-orders">
+            </article>
+            <article id='my-orders-history' class="history-content">
+                <span style="width: 25%;"><b>Fecha</b></span>
+                <span style="width: 25%;"><b>Estado</b></span>
+                <span style="width: 25%;"><b>Delivery</b></span>
+                <span style="width: 25%;"><b>Precio</b></span>
+                <hr class="hr-my-orders">
+            </article>
+        </div>
+
+    </div>
+
+    <div class="container" id="portada-img">
+        <div class="fila-completa"></div>
+        <div class="oferta-dia">
+            <span class="hours-days" id='portada-title'>titulo </span>
+            <span class="hours-days" id='portada-des'>descripciíon </span>
+        </div>
+        <div> <span class="hours-days" id='open-lbl'>abierto </span></div>
+        <div class="title"></div>
+        <!-- <h1 class="title">TAC congelados</h1> -->
+        <button id='portada-btn-agregar' onclick="AddMenuPortadaToOrder()">Agregar Pedido</button>
+        <div></div>
+        <div class="horarios-grid">
+            <div class="dias-horas"> <span class="hours-days" id='days'>days </span> </div>
+            <div style="text-align: right; margin-right: 10px;"> <span class="hours-days" id='hours'>hours</span></div>
+        </div>
+
+
+    </div>
+    <div class="menu-conten" id="menus">
+        <h1 class="menu-title">EL MENU</h1>
+    </div>
+    <div id="show-oreders" class="show-oreders">
+        <h2 id='btn-show-list-order' onclick="showoreders()">Hacer Pedido</h2>
+        <div id="oreder" class="oreder-position">
+            <div class="oreder-text">
+
+                <div>
+                    <h3>Cantidad</h3>
+                    <h3>Descripcion</h3>
+                    <h3>Precio</h3>
+                </div>
+
+                <div id="ord" class="tbody-order-pending">
+
+                </div>
+                <hr class="hr-style">
+
+                <div>
+                    <span id="total" class="order-title">total:</span>
+                    <span class="order-title">Detalles</span>
+                    <button class="btn-pedido" onclick="CreatePedido()">Hacer Pedido</button>
+                    <textarea name="details" id="details"></textarea>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/Categoria.js"></script>
+<script src="./js/ListPedido.js"></script>
+<script src="./js/Menu.js"></script>
+<script src="./js/tools.js"></script>
+<script src="./js/sesion_menu.js"></script>
+<script src="./js/listado_pedidos.js"></script>
+<script src="./js/menu_restorant.js"></script>
+<script src="./js/mis_pedidos.js"></script>
+
+</html>

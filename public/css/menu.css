@@ -1,0 +1,120 @@
+.menu-title {
+    padding-top: 8vh;
+    font-size: 3em;
+}
+
+.addorder {
+    background-color: rgb(94, 94, 255);
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    line-height: 1em;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.addorder::after {
+    font-size: 2.3em;
+    content: '\002B';
+    position: relative;
+    top: 0.1em;
+}
+
+.order {
+    background-color: rgba(255, 255, 255, 0.733);
+    color: #1364BF;
+}
+
+.order p b {
+    color: #1364BF;
+}
+
+.order p {
+    color: #1364BF;
+}
+
+.order .addorder {
+    background-color: #4acf9e;
+}
+
+.order .addorder:after {
+    content: "\2713";
+}
+
+.triangle {
+    border-left: 4em solid red;
+    border-bottom: 4em solid transparent;
+    position: absolute;
+}
+
+.triangle::after {
+    content: 'agotado';
+    color: #fff;
+    font-size: 0.6em;
+    text-transform: uppercase;
+    left: -4em;
+    top: 2em;
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%) rotate(315deg);
+}
+
+.triangle-close {
+    border-left: 4em solid white;
+    border-bottom: 4em solid transparent;
+    position: absolute;
+}
+
+.triangle-close::after {
+    content: 'cerrado';
+    color: red;
+    font-size: 0.6em;
+    text-transform: uppercase;
+    left: -4em;
+    top: 2em;
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%) rotate(315deg);
+}
+
+.food {
+    display: inline-block;
+    position: relative;
+    padding: 0.3em;
+    width: 12em;
+    vertical-align: top;
+    border-radius: 1%;
+}
+
+.food-description {
+    text-align: left;
+}
+
+.food-description>p,
+.food-description>p>b {
+    color: black;
+}
+
+.food-price-history {
+    border-radius: 10%;
+    font-weight: 300;
+}
+
+.food-price {
+    background-color: #1364BF;
+    padding: 2px;
+    float: right;
+    position: relative;
+    border-radius: 10%;
+    font-weight: 300;
+    box-shadow: 2px 2px 4px 1px rgb(122 122 122);
+}
+
+.menu-conten {
+    background-color: white;
+    padding-bottom: 14em;
+    text-align: center;
+    padding: spx;
+}

@@ -1,0 +1,147 @@
+.btn-count {
+    width: 2em;
+    height: 2em;
+    border-radius: 20%;
+    background-color: white;
+    color: black;
+}
+
+.count {
+    padding: 0px 1em;
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    height: 80%;
+}
+
+.text-count {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+}
+
+.oreder-list {
+    position: fixed;
+    bottom: -38.5vh;
+    border-radius: 9vw 9vw 0 0;
+    border: solid 0.3vw white;
+    margin: 0;
+    width: 99.4%;
+    height: 50%;
+    transition: 0.8s;
+}
+
+.show-oreders {
+    position: fixed;
+    bottom: 0;
+    transition: 0.8s;
+    width: 24.9em;
+    right: 0;
+    height: 2em;
+    border-radius: 2em 2em 0 0;
+    /* border: solid 0em white; */
+    background-color: #04388E;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 2.3em;
+    z-index: 2;
+}
+
+.show-oreders h2 {
+    height: 1.1em;
+    font-size: 40px;
+    padding-bottom: 0.4em;
+}
+
+.show-oreder {
+    transition: 0.8s;
+    bottom: 17.5em;
+    padding-bottom: 9%;
+}
+
+.oreder-position {
+    background-color: #1364BF;
+    height: 30em;
+    z-index: 1;
+}
+
+.oreder-text {
+    display: inline;
+}
+
+.oreder-text h3 {
+    float: left;
+    width: 33%;
+    padding: 1em 0;
+}
+
+.order-content {
+    float: left;
+    width: 33%;
+}
+
+.table-oreder {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    z-index: 1;
+    overflow: auto;
+}
+
+.table-oreder thead tr th,
+.table-oreder tbody tr td {
+    width: 33.3vw;
+}
+
+.table-oreder tbody tr {
+    padding: 1vw 0;
+}
+
+.tbody-order-pending {
+    float: left;
+    width: 100%;
+    overflow-x: auto;
+    height: 15vh;
+}
+
+.hr-style {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.384);
+    width: 100%;
+    margin-bottom: 0.6em;
+}
+
+textarea {
+    resize: none;
+    width: 50%;
+    height: 5em;
+    float: right;
+    margin: 1em;
+    color: black;
+}
+
+.text-area-and-btn-oreder {
+    /*  position: absolute;*/
+    top: 180px;
+}
+
+.order-title {
+    float: right;
+    width: 40%;
+}
+
+.btn-pedido {
+    background-color: #082771;
+    box-shadow: 2px 2px 4px 1px rgb(122 122 122);
+    width: 18%;
+    border-radius: 5%;
+    border: none;
+    font-size: 100%;
+    float: right;
+    margin: 1.3em 2.6em 0 0;
+    width: 6em;
+    padding: 1em 0;
+}
